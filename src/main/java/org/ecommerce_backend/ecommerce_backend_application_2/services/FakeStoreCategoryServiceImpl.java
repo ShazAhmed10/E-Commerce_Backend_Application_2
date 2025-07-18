@@ -10,13 +10,14 @@ import java.util.List;
 @Service
 public class FakeStoreCategoryServiceImpl implements CategoryService{
 
-    private CategoryGateway categoryGateway;
+    private final CategoryGateway categoryGateway;
 
     public FakeStoreCategoryServiceImpl(CategoryGateway categoryGateway){
         this.categoryGateway = categoryGateway;
     }
+
     @Override
     public List<CategoryDto> getAllCategories() throws IOException {
-        return categoryGateway.getAllCategories();
+        return this.categoryGateway.getAllCategories();
     }
 }

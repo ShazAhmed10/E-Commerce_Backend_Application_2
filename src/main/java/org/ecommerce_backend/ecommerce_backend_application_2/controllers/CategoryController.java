@@ -11,10 +11,10 @@ import java.io.IOException;
 import java.util.List;
 
 @RestController
-@RequestMapping("/category")
+@RequestMapping("/categories")
 public class CategoryController {
 
-    private CategoryService categoryService;
+    private final CategoryService categoryService;
 
     public CategoryController(CategoryService categoryService){
         this.categoryService = categoryService;
@@ -22,7 +22,7 @@ public class CategoryController {
 
     @GetMapping
     public ResponseEntity<List<CategoryDto>> getAllCategories()  throws IOException {
-        List<CategoryDto> response = categoryService.getAllCategories();
+        List<CategoryDto> response = this.categoryService.getAllCategories();
         return ResponseEntity.ok(response);
     }
 }
