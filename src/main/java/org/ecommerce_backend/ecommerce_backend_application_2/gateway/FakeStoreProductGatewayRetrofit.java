@@ -8,10 +8,10 @@ import org.springframework.stereotype.Component;
 import java.io.IOException;
 
 @Component
-public class FakeStoreProductGatewayImpl implements ProductGateway{
+public class FakeStoreProductGatewayRetrofit implements ProductGateway{
     private final FakeStoreRetrofitProductApis fakeStoreRetrofitProductApis;
 
-    public FakeStoreProductGatewayImpl(FakeStoreRetrofitProductApis fakeStoreRetrofitProductApis){
+    public FakeStoreProductGatewayRetrofit(FakeStoreRetrofitProductApis fakeStoreRetrofitProductApis){
         this.fakeStoreRetrofitProductApis = fakeStoreRetrofitProductApis;
     }
 

@@ -9,10 +9,10 @@ import java.io.IOException;
 import java.util.List;
 
 @Component
-public class FakeStoreCategoryGatewayImpl implements CategoryGateway{
+public class FakeStoreCategoryGatewayRetrofit implements CategoryGateway{
     public final FakeStoreRetrofitCategoryApis fakeStoreRetrofitCategoryApis;
 
-    public FakeStoreCategoryGatewayImpl(FakeStoreRetrofitCategoryApis fakeStoreRetrofitCategoryApis){
+    public FakeStoreCategoryGatewayRetrofit(FakeStoreRetrofitCategoryApis fakeStoreRetrofitCategoryApis){
         this.fakeStoreRetrofitCategoryApis = fakeStoreRetrofitCategoryApis;
     }
 
