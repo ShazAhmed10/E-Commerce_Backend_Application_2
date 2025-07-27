@@ -1,6 +1,6 @@
 package org.ecommerce_backend.ecommerce_backend_application_2.gateway;
 
-import org.ecommerce_backend.ecommerce_backend_application_2.dtos.FakeStoreProductResponseDto;
+import org.ecommerce_backend.ecommerce_backend_application_2.dtos.RetrofitFakeStoreProductResponseDto;
 import org.ecommerce_backend.ecommerce_backend_application_2.dtos.ProductDto;
 import org.ecommerce_backend.ecommerce_backend_application_2.gateway.retrofitapis.FakeStoreRetrofitProductApis;
 import org.springframework.stereotype.Component;
@@ -8,16 +8,16 @@ import org.springframework.stereotype.Component;
 import java.io.IOException;
 
 @Component
-public class FakeStoreProductGatewayRetrofit implements ProductGateway{
+public class RetrofitFakeStoreProductGateway implements ProductGateway{
     private final FakeStoreRetrofitProductApis fakeStoreRetrofitProductApis;
 
-    public FakeStoreProductGatewayRetrofit(FakeStoreRetrofitProductApis fakeStoreRetrofitProductApis){
+    public RetrofitFakeStoreProductGateway(FakeStoreRetrofitProductApis fakeStoreRetrofitProductApis){
         this.fakeStoreRetrofitProductApis = fakeStoreRetrofitProductApis;
     }
 
     @Override
     public ProductDto getProductById(Long id) throws IOException {
-        FakeStoreProductResponseDto response = this.fakeStoreRetrofitProductApis.getProductById(id)
+        RetrofitFakeStoreProductResponseDto response = this.fakeStoreRetrofitProductApis.getProductById(id)
                 .execute()
                 .body();
 

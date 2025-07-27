@@ -9,7 +9,7 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class FakeStoreCategoryResponseDto {
+public class RetrofitFakeStoreCategoryResponseDto {
     private String status;
     private String message;
     private List<String> categories;
