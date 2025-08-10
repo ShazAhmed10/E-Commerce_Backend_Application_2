@@ -7,7 +7,7 @@ import lombok.*;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class FakeStoreProductResponseDto{
+public class RetrofitFakeStoreProductResponseDto {
 	private String status;
 	private String message;
 	private ProductDto product;
