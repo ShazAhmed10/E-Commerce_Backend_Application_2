@@ -11,7 +11,7 @@ import org.springframework.web.client.RestTemplate;
 import java.io.IOException;
 import java.util.List;
 
-@Component
+@Component("restTemplateFakeStoreCategoryGateway")
 public class RestTemplateFakeStoreCategoryGateway implements CategoryGateway{
     private final RestTemplate restTemplate;
     private final String fakeStoreBaseUrl;
@@ -34,7 +34,7 @@ public class RestTemplateFakeStoreCategoryGateway implements CategoryGateway{
                         RestTemplateFakeStoreCategoryResponseDto.class
                 );
 
-        if(response.getCategories() == null){
+        if(response == null){
             throw new IOException("Failed to fetch all categories");
         }
 

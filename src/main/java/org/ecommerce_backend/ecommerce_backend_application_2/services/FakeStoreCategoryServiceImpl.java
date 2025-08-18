@@ -1,6 +1,7 @@
 package org.ecommerce_backend.ecommerce_backend_application_2.services;
 
 import org.ecommerce_backend.ecommerce_backend_application_2.dtos.CategoryDto;
+import org.ecommerce_backend.ecommerce_backend_application_2.dtos.CategoryProductDto;
 import org.ecommerce_backend.ecommerce_backend_application_2.gateway.CategoryGateway;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -21,5 +22,20 @@ public class FakeStoreCategoryServiceImpl implements CategoryService{
     @Override
     public List<CategoryDto> getAllCategories() throws IOException {
         return this.categoryGateway.getAllCategories();
+    }
+
+    @Override
+    public CategoryDto getCategoryByName(String categoryName) throws Exception {
+        return null;
+    }
+
+    @Override
+    public CategoryDto createCategory(CategoryDto categoryDto) throws Exception {
+        return null;
+    }
+
+    @Override
+    public CategoryProductDto getAllProductsWithCategory(String categoryName) throws Exception {
+        return null;
     }
 }
