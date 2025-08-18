@@ -1,12 +1,11 @@
 package org.ecommerce_backend.ecommerce_backend_application_2.controllers;
 
+import org.ecommerce_backend.ecommerce_backend_application_2.dtos.ProductCategoryDto;
 import org.ecommerce_backend.ecommerce_backend_application_2.dtos.ProductDto;
 import org.ecommerce_backend.ecommerce_backend_application_2.services.ProductService;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
 
@@ -15,13 +14,25 @@ import java.io.IOException;
 public class ProductController {
     private final ProductService productService;
 
-    public ProductController(ProductService productService) {
+    public ProductController(@Qualifier("productServiceImpl") ProductService productService) {
         this.productService = productService;
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<ProductDto> getProductById(@PathVariable Long id) throws IOException {
+    public ResponseEntity<ProductDto> getProductById(@PathVariable Long id) throws Exception {
         ProductDto response = this.productService.getProductById(id);
+        return ResponseEntity.ok(response);
+    }
+
+    @PostMapping
+    public ResponseEntity<ProductDto> createProduct(@RequestBody ProductDto productDto) throws Exception {
+        ProductDto response = productService.createProduct(productDto);
+        return ResponseEntity.ok(response);
+    }
+
+    @GetMapping("/{id}/details")
+    public ResponseEntity<ProductCategoryDto> getProductWithCategory(@PathVariable long id) throws Exception{
+        ProductCategoryDto response = productService.getProductWithCategory(id);
         return ResponseEntity.ok(response);
     }
 }
